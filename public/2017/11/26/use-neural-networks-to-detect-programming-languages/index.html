@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2396877498000532",
+    enable_page_level_ads: true
+  });
+</script>
+    
+    <title>Use Deep Learning to Detect Programming Languages | Searene</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Neural Network" />
+    
+    <meta name="description" content="IntroductionThis post introduces a way to use deep learning to detect programming languages. Take the following code as an example. 12def test():    print(&quot;something&quot;) We will get an answer python if">
+<meta name="keywords" content="Neural Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Use Deep Learning to Detect Programming Languages">
+<meta property="og:url" content="http://searene.me/2017/11/26/use-neural-networks-to-detect-programming-languages/index.html">
+<meta property="og:site_name" content="Searene">
+<meta property="og:description" content="IntroductionThis post introduces a way to use deep learning to detect programming languages. Take the following code as an example. 12def test():    print(&quot;something&quot;) We will get an answer python if">
+<meta property="og:image" content="http://searene.me/images/deep-learning.jpg">
+<meta property="og:updated_time" content="2017-12-09T10:10:51.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Use Deep Learning to Detect Programming Languages">
+<meta name="twitter:description" content="IntroductionThis post introduces a way to use deep learning to detect programming languages. Take the following code as an example. 12def test():    print(&quot;something&quot;) We will get an answer python if">
+<meta name="twitter:image" content="http://searene.me/images/deep-learning.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <link rel="stylesheet" href="/vendor/scrollLoading/style.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-71019366-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coding/">Coding</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Journal/">Journal</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Journey/">Journey</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Coding/">Coding</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-use-neural-networks-to-detect-programming-languages" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Use Deep Learning to Detect Programming Languages
+        </h1>
+    
+
+            </header>
+        
+        <div class="article-subtitle">
+            <a href="/2017/11/26/use-neural-networks-to-detect-programming-languages/" class="article-date">
+    <time datetime="2017-11-26T07:56:45.000Z" itemprop="datePublished">2017-11-26</time>
+</a>
+            
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Network/">Neural Network</a></li></ul>
+
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This post introduces a way to use deep learning to detect programming languages. Take the following code as an example.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"something"</span>)</div></pre></td></tr></table></figure>
+<p>We will get an answer <code>python</code> if we use the program to be introduced in the post to detect the language of the above code, which is also the correct answer. In fact, through a preliminary test, the accuracy of the program is around 90%. We have reason to believe that we are able to get a better result if the training dataset is larger or further tuning is conducted.</p>
+<h1 id="Execution"><a href="#Execution" class="headerlink" title="Execution"></a>Execution</h1><p>First let’s try running the program, so we can have an intuitive perspective on what the program is about.</p>
+<ol>
+<li><p>Install third-party libraries</p>
+<ul>
+<li><p><a href="https://www.anaconda.com/download/" target="_blank" rel="external">Anaconda(Python 3.6+)</a></p>
+</li>
+<li><p>Gensim</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda install -c anaconda gensim</div></pre></td></tr></table></figure>
+</li>
+<li><p>Keras</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda install -c conda-forge keras</div></pre></td></tr></table></figure>
+</li>
+<li><p>Tensorflow</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install tensorflow==1.3.0</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Download the program</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git@github.com:searene/demos.git &amp;&amp; <span class="built_in">cd</span> demos/PLDetector-demo</div></pre></td></tr></table></figure>
+</li>
+<li><p>Train the model</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">python -m src.neural_network_trainer                                                  </div><div class="line">Using TensorFlow backend.                                                                                             </div><div class="line">...</div><div class="line">_________________________________________________________________</div><div class="line">Layer (<span class="built_in">type</span>)                 Output Shape              Param <span class="comment">#</span></div><div class="line">=================================================================</div><div class="line">embedding_1 (Embedding)      (None, 500, 100)          773100</div><div class="line">_________________________________________________________________</div><div class="line">conv1d_1 (Conv1D)            (None, 496, 128)          64128                                                          </div><div class="line">_________________________________________________________________                                                     </div><div class="line">max_pooling1d_1 (MaxPooling1 (None, 248, 128)          0                                                              </div><div class="line">_________________________________________________________________                                                     </div><div class="line">flatten_1 (Flatten)          (None, 31744)             0                                                              </div><div class="line">_________________________________________________________________                                                     </div><div class="line">dense_1 (Dense)              (None, 8)                 253960                                                         </div><div class="line">=================================================================                                                     </div><div class="line">Total params: 1,091,188                                                                                               </div><div class="line">Trainable params: 318,088</div><div class="line">Non-trainable params: 773,100</div><div class="line">_________________________________________________________________</div><div class="line">INFO:root:None</div><div class="line">Epoch 1/10</div><div class="line"> - 1s - loss: 0.4304 - acc: 0.8823</div><div class="line">Epoch 2/10</div><div class="line"> - 1s - loss: 0.1357 - acc: 0.9657</div><div class="line">Epoch 3/10</div><div class="line"> - 1s - loss: 0.0706 - acc: 0.9788</div><div class="line">Epoch 4/10</div><div class="line"> - 1s - loss: 0.0392 - acc: 0.9887</div><div class="line">Epoch 5/10</div><div class="line"> - 1s - loss: 0.0266 - acc: 0.9927</div><div class="line">Epoch 6/10</div><div class="line"> - 1s - loss: 0.0203 - acc: 0.9945</div><div class="line">Epoch 7/10</div><div class="line"> - 1s - loss: 0.0169 - acc: 0.9948</div><div class="line">Epoch 8/10</div><div class="line"> - 1s - loss: 0.0145 - acc: 0.9956</div><div class="line">Epoch 9/10</div><div class="line"> - 1s - loss: 0.0131 - acc: 0.9959                                                                                    </div><div class="line">Epoch 10/10                                                                                                           </div><div class="line"> - 1s - loss: 0.0120 - acc: 0.9959                                                                                    </div><div class="line">INFO:root:Test Accuracy: 94.642857</div></pre></td></tr></table></figure>
+<p>We will have three important files as soon as the above step is completed.</p>
+<ul>
+<li>resources/models/model.h5</li>
+<li>resources/models/model.json</li>
+<li>resources/vocab_tokenizer</li>
+</ul>
+<p>We will introduce the three files in detail later on.</p>
+</li>
+<li><p>Detection</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">python -m src.detector</div><div class="line"></div><div class="line">Using TensorFlow backend.</div><div class="line">Python</div></pre></td></tr></table></figure>
+<p>The following python code is detected by default by <code>detector.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"something"</span>)</div></pre></td></tr></table></figure>
+<p>Of course you can modify <code>detector.py</code> to detect other code.</p>
+</li>
+</ol>
+<h1 id="Project-Structure"><a href="#Project-Structure" class="headerlink" title="Project Structure"></a>Project Structure</h1><p>Let’s first have a rough idea of the project structure. Don’t worry, it will only take 1 ~ 2 minutes.</p>
+<ul>
+<li><p>resources/code/train: training data. The name of each subfolder representes a programming language. There are around 10 code files in each subfolder, i.e. 10 files per programming language for training.</p>
+<p><img src="/images/2017-11-26-163206_448x610_scrot.png" alt="train文件夹结构"></p>
+</li>
+<li><p>resources/code/test: the same as <code>resources/code/train</code> except that it’s used for testing accuracy instead of training.</p>
+</li>
+<li><code>models</code> directory &amp; <code>vocab_tokenizer</code>: stored training result</li>
+<li>src/config.py: some constants used in the program</li>
+<li>src/neural_network_trainer.py: code used to train the model</li>
+<li>src/detector.py: code used to load the model and detect programming languages</li>
+</ul>
+<h1 id="How-It-Works"><a href="#How-It-Works" class="headerlink" title="How It Works"></a>How It Works</h1><h2 id="Construct-Vocabulary"><a href="#Construct-Vocabulary" class="headerlink" title="Construct Vocabulary"></a>Construct Vocabulary</h2><p>let’s first get our heads around the training process, aka the contents in <code>neural_network_trainer.py</code>. the first step to train the neural network is to build a vocabulary. Vocabulary is actually a list of words, which consists of some common words in the training data. When we are done with building a vocabulary and start detecting the programming language, we will try splitting the code into a list of words, and remove those which are not in the vocabulary, then we put the remaining words into the neural network for detection.</p>
+<p>OK, you might want to ask, why removing words that are not in the vocabulary? Wouldn’t it work if we just put all the words into the neural network? Actually, this is impossible. Because each word in the vocabulary is mapped to a word vector, which is constructed during training. So words that are not in the vocabulary don’t have word vectors to map, which means the neural network is unable to process this word.</p>
+<p>So how do we build the vocabulary? It’s fairly easy, we just need to scan all the code in <code>resources/code/train</code> and extract common words in it. Those common words will make up our vocabulary. Key code is as follows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_vocab</span><span class="params">(train_data_dir)</span>:</span></div><div class="line">    vocabulary = Counter()</div><div class="line">    files = get_files(train_data_dir)</div><div class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> files:</div><div class="line">        words = load_words_from_file(f)</div><div class="line">        vocabulary.update(words)</div><div class="line"></div><div class="line">    <span class="comment"># remove rare words</span></div><div class="line">    min_count = <span class="number">5</span></div><div class="line">    vocabulary = [word <span class="keyword">for</span> word, count <span class="keyword">in</span> vocabulary.items() <span class="keyword">if</span> count &gt;= min_count]</div><div class="line">    <span class="keyword">return</span> vocabulary</div></pre></td></tr></table></figure>
+<p>Run <code>build_vocab</code> to get the vocabulary.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vocab = build_vocab(config.train_data_dir)</div><div class="line">print(vocab) <span class="comment"># [..., 'script', 'text', 'head', 'appendChild', 'parentNode', 'removeChild', ...]</span></div></pre></td></tr></table></figure>
+<p>So, as you can see, the vocabulary is just a list of words, that’s it.</p>
+<h2 id="Build-vocab-tokenizer"><a href="#Build-vocab-tokenizer" class="headerlink" title="Build vocab_tokenizer"></a>Build vocab_tokenizer</h2><p>The next step is to build <code>vocab_tokenizer</code>. So what is <code>vocab_tokenzier</code>? It’s a simple variable, you can imagine it as a dictionary, which maps each word in the vocabulary to a number. Why would we map those words to numbers? Because our neural network is only able to run with numbers, rather than strings.</p>
+<p>We use <code>Tokenizer</code> provided by <code>Keras</code> to build <code>vocab_tokenizer</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_vocab_tokenizer_from_set</span><span class="params">(vocab)</span>:</span></div><div class="line">    vocab_tokenizer = Tokenizer(lower=<span class="keyword">False</span>, filters=<span class="string">""</span>)</div><div class="line">    vocab_tokenizer.fit_on_texts(vocab)</div><div class="line">    <span class="keyword">return</span> vocab_tokenizer</div></pre></td></tr></table></figure>
+<p>Then we save this <code>vocab_tokenizer</code> as a file, to be used later.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_vocab_tokenizer</span><span class="params">(vocab_tokenzier_location, vocab_tokenizer)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(vocab_tokenzier_location, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</div><div class="line">        pickle.dump(vocab_tokenizer, f, protocol=pickle.HIGHEST_PROTOCOL)</div></pre></td></tr></table></figure>
+<h2 id="Build-Word-Vectors"><a href="#Build-Word-Vectors" class="headerlink" title="Build Word Vectors"></a>Build Word Vectors</h2><p>Before diving into word vectors, we first need to know what they are.</p>
+<p>To put it simply, word vectors are just vectors, and each word in the vocabulary is mapped to a word vector. You may still not get it. This may seem too simple, let’s take the following Java code as an example.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"something"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>The <code>word2vec</code> variable we are building here is actually a dictionary, which is like this(word -&gt; word_vector).</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">word2vec = &#123;</div><div class="line">    <span class="string">'public'</span>: [<span class="number">2</span>, <span class="number">1</span>, <span class="number">10</span>],</div><div class="line">    <span class="string">'static'</span>: [<span class="number">2</span>, <span class="number">1</span>, <span class="number">9</span>],</div><div class="line">    <span class="string">'main'</span>: [<span class="number">1</span>, <span class="number">10</span>, <span class="number">3</span>],</div><div class="line">    <span class="string">'String'</span>: [<span class="number">1</span>, <span class="number">20</span>, <span class="number">3</span>],</div><div class="line">    <span class="string">'args'</span>: [<span class="number">1</span>, <span class="number">40</span>, <span class="number">3</span>],</div><div class="line">    <span class="string">'System'</span>: [<span class="number">20</span>, <span class="number">10</span>, <span class="number">3</span>],</div><div class="line">    <span class="string">'out'</span>: [<span class="number">3</span>, <span class="number">10</span>, <span class="number">3</span>],</div><div class="line">    <span class="string">'println'</span>: [<span class="number">1</span>, <span class="number">39</span>, <span class="number">3</span>],</div><div class="line">    <span class="string">'something'</span>: [<span class="number">1</span>, <span class="number">20</span>, <span class="number">3</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Here comes the question. Why would we build word vectors, instead of just using the number given by <code>vocab_tokenizer</code>? This is because word vectors have a very special and useful characteristic: <strong>The more close two words are, the smaller their word vectors are</strong>(Note that the calculation of the distance between vectors are of the field of math, which can be dealt with using multiple methods. It doesn’t matter if you don’t know how to calculate it, you only need to know the distance between vectors can be calculated). This characteristic will boost the accuracy of our neural network dramatically.</p>
+<p>For example, <code>public</code> and <code>staic</code> are only seen together in Java, so the distance between their word vectors should be small. However, <code>public</code> and <code>System</code> is not that close, i.e. we may only see one of them at a time, so the distance between their word vectors are larger.</p>
+<p>Now that we know why it is necessary to build word vectors, the next problem is how we build them. There are multiple ways to do it. Here we use the <code>Word2Vec</code> algorithm provided by <code>gensim</code> to achieve it. Steps are as follows.</p>
+<ol>
+<li>Load all the training data, extract those words which are in the vocabulary.</li>
+<li>Map each word into its respective number by using <code>vocab_tokenizer</code>.</li>
+<li>Put those numbers into <code>Word2Vec</code> library and obtain word vectors.</li>
+</ol>
+<p>The code is as follows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_word2vec</span><span class="params">(train_data_dir, vocab_tokenizer)</span>:</span></div><div class="line">    all_words = []</div><div class="line">    files = get_files(train_data_dir)</div><div class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> files:</div><div class="line">        words = load_words_from_file(f)</div><div class="line">        all_words.append([word <span class="keyword">for</span> word <span class="keyword">in</span> words <span class="keyword">if</span> is_in_vocab(word, vocab_tokenizer)])</div><div class="line">    model = Word2Vec(all_words, size=<span class="number">100</span>, window=<span class="number">5</span>, workers=<span class="number">8</span>, min_count=<span class="number">1</span>)</div><div class="line">    <span class="keyword">return</span> &#123;word: model[word] <span class="keyword">for</span> word <span class="keyword">in</span> model.wv.index2word&#125;</div></pre></td></tr></table></figure>
+<h2 id="Build-the-Neural-Network"><a href="#Build-the-Neural-Network" class="headerlink" title="Build the Neural Network"></a>Build the Neural Network</h2><p>Everything is ready, now it’s the time to train the neural network! First we need to know the input and output of the neural network, take the following code as an example.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></div><div class="line">    print(<span class="string">"something"</span>)</div></pre></td></tr></table></figure>
+<p>Map <code>def</code>, <code>test</code>, <code>print</code> and <code>something</code> into their respective numbers, we get the input</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">input = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
+<p>The output of the neural network is the probability of each language.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">output = [<span class="number">0.5</span>, <span class="number">0.1</span>, <span class="number">0.04</span>, <span class="number">0.06</span>, <span class="number">0.1</span>, <span class="number">0.1</span>, <span class="number">0.05</span>, <span class="number">0.05</span>]</div></pre></td></tr></table></figure>
+<p>The code is as follows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">all_languages = [<span class="string">"Python"</span>, <span class="string">"C"</span>, <span class="string">"Java"</span>, <span class="string">"Scala"</span>, <span class="string">"Javascript"</span>, <span class="string">"CSS"</span>, <span class="string">"C#"</span>, <span class="string">"HTML"</span>]</div></pre></td></tr></table></figure>
+<p>So we know the above code is most likely to be written by Python, because Python has the most probability(0.5)</p>
+<p>Now that we know the input and output, let me introduce how the neural network is constructed. There are three parts in total.</p>
+<ol>
+<li>Embedding Layer: it’s used to map each word into its respective word vector</li>
+<li>Conv1D, MaxPooling1D: this part is a classic deep learning layer. To put it simply, what it does is extraction and transformation. Refer to corresponding tutorials of deep learning for details.</li>
+<li>Flatten, Dense: convert the multi-dimensional array into one-dimensional, and output the prediction.</li>
+</ol>
+<p>Key code is as follows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_model</span><span class="params">(train_data_dir, vocab_tokenizer, word2vec)</span>:</span></div><div class="line">    weight_matrix = build_weight_matrix(vocab_tokenizer, word2vec)</div><div class="line"></div><div class="line">    <span class="comment"># build the embedding layer</span></div><div class="line">    input_dim = len(vocab_tokenizer.word_index) + <span class="number">1</span></div><div class="line">    output_dim = get_word2vec_dimension(word2vec)</div><div class="line">    x_train, y_train = load_data(train_data_dir, vocab_tokenizer)</div><div class="line"></div><div class="line">    embedding_layer = Embedding(input_dim, output_dim, weights=[weight_matrix], input_length=input_length,</div><div class="line">                                trainable=<span class="keyword">False</span>)</div><div class="line">    model = Sequential()</div><div class="line">    model.add(embedding_layer)</div><div class="line">    model.add(Conv1D(filters=<span class="number">128</span>, kernel_size=<span class="number">5</span>, activation=<span class="string">"relu"</span>))</div><div class="line">    model.add(MaxPooling1D(pool_size=<span class="number">2</span>))</div><div class="line">    model.add(Flatten())</div><div class="line">    model.add(Dense(len(all_languages), activation=<span class="string">"sigmoid"</span>))</div><div class="line">    logging.info(model.summary())</div><div class="line">    model.compile(loss=<span class="string">'binary_crossentropy'</span>, optimizer=<span class="string">'adam'</span>, metrics=[<span class="string">'accuracy'</span>])</div><div class="line">    model.fit(x_train, y_train, epochs=<span class="number">10</span>, verbose=<span class="number">2</span>)</div><div class="line">    <span class="keyword">return</span> model</div></pre></td></tr></table></figure>
+<p>All right, we built our neural network, not a trivial achievement! Then let’s write a function, which uses the neural network to detect test code, check out its accuracy.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">evaluate_model</span><span class="params">(test_data_dir, vocab_tokenizer, model)</span>:</span></div><div class="line">    x_test, y_test = load_data(test_data_dir, vocab_tokenizer)</div><div class="line">    loss, acc = model.evaluate(x_test, y_test, verbose=<span class="number">0</span>)</div><div class="line">    logging.info(<span class="string">'Test Accuracy: %f'</span> % (acc * <span class="number">100</span>))</div></pre></td></tr></table></figure>
+<p>As what we have got before, the test accuracy is around 94%~95%, which is good enough. Let’s save the neural network as files, so we can load it when detecting.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_model</span><span class="params">(model, model_file_location, weights_file_location)</span>:</span></div><div class="line">    os.makedirs(os.path.dirname(model_file_location), exist_ok=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">with</span> open(model_file_location, <span class="string">"w"</span>) <span class="keyword">as</span> f:</div><div class="line">        f.write(model.to_json())</div><div class="line">    model.save_weights(weights_file_location)</div></pre></td></tr></table></figure>
+<h2 id="Load-the-Neural-Network-For-Detection"><a href="#Load-the-Neural-Network-For-Detection" class="headerlink" title="Load the Neural Network For Detection"></a>Load the Neural Network For Detection</h2><p>This part is simple, we only need to load <code>vocab_tokenizer</code> and the neural network for detection. The code is as follows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">vocab_tokenizer = load_vocab_tokenizer(config.vocab_tokenizer_location)</div><div class="line">model = load_model(config.model_file_location, config.weights_file_location)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_language</span><span class="params">(binary_list)</span>:</span></div><div class="line">    i = np.argmax(binary_list)</div><div class="line">    <span class="keyword">return</span> all_languages[i]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_neural_network_input</span><span class="params">(code)</span>:</span></div><div class="line">    encoded_sentence = load_encoded_sentence_from_string(code, vocab_tokenizer)</div><div class="line">    <span class="keyword">return</span> pad_sequences([encoded_sentence], maxlen=input_length)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">detect</span><span class="params">(code)</span>:</span></div><div class="line">    y_proba = model.predict(get_neural_network_input(code))</div><div class="line">    <span class="keyword">return</span> to_language(y_proba)</div></pre></td></tr></table></figure>
+<p>Use it like this.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">code = <span class="string">"""</span></div><div class="line">def test():</div><div class="line">    print("something")</div><div class="line">"""</div><div class="line">print(detect(code)) <span class="comment"># Python</span></div></pre></td></tr></table></figure>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>All in all, here are the steps to build the neural network.</p>
+<ol>
+<li>Build vocabulary.</li>
+<li>Build <code>vocab_tokenizer</code> using vocabulary, which is used to convert words into numbers.</li>
+<li>Load words into <code>Word2Vec</code> to build word vectors.</li>
+<li>Load word vectors into the neural network as part of the input layer.</li>
+<li>Load all the training data, extract words that are in the vocabulary, convert them into numbers using <code>vocab_tokenizer</code>, load them into the neural network for training.</li>
+</ol>
+<p>Three steps for detection:</p>
+<ol>
+<li>Extract words in the code and remove those that are not in the vocabulary.</li>
+<li>Convert those words into number through <code>vocab_tokenizer</code>, and load them into the neural network.</li>
+<li>Choose the language which has the most probability, which the answer we want.</li>
+</ol>
+<h1 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h1><p>You may have already found out that, we only saved <code>vocab_tokenizer</code> and the neural network(which lies in the model directory), why didn’t we save <code>word2vec</code> and <code>vocab</code>?</p>
+<h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p>If you have any question, please leave it in the comment below, I’ll try to answer it.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://searene.me/2017/11/26/use-neural-networks-to-detect-programming-languages/" data-id="cjjhacqey006j8arfapp8j25z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/searene" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/1031769/searene?tab=profile" target="_blank">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://feeds.feedburner.com/Searene" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/12/17/My-Last-Weekend-At-Cisco/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            My Last Weekend At Cisco
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/10/07/Right-associativity-in-Scala/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Right associativity in Scala</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/07/Went-to-Qiandao-Lake/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/IMG_20180406_084153.jpg)" alt="Went to Qiandao Lake" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/07/Went-to-Qiandao-Lake/" class="title">Went to Qiandao Lake</a></p>
+                            <p class="item-date"><time datetime="2018-04-07T02:48:09.000Z" itemprop="datePublished">2018-04-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/03/Go-to-KTV-alone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/1_1354265864.jpg)" alt="Go to KTV alone" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/03/Go-to-KTV-alone/" class="title">Go to KTV alone</a></p>
+                            <p class="item-date"><time datetime="2018-04-02T23:10:10.000Z" itemprop="datePublished">2018-04-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/01/live-a-quite-life/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/8608094661_f6fdcc0c83_b.jpg)" alt="live a quite life" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/01/live-a-quite-life/" class="title">live a quite life</a></p>
+                            <p class="item-date"><time datetime="2018-04-01T01:50:26.000Z" itemprop="datePublished">2018-04-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/05/The-meaning-of-life/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/980x.png)" alt="The meaning of life" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/03/05/The-meaning-of-life/" class="title">The meaning of life</a></p>
+                            <p class="item-date"><time datetime="2018-03-05T10:53:53.000Z" itemprop="datePublished">2018-03-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/20/We-are-either-young-or-old-never-something-in-between/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/128910133_14610369084721n.jpg)" alt="We are either young or old, never something in between" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journey/">Journey</a></p>
+                            <p class="item-title"><a href="/2018/01/20/We-are-either-young-or-old-never-something-in-between/" class="title">We are either young or old, never something in between</a></p>
+                            <p class="item-date"><time datetime="2018-01-20T07:55:01.000Z" itemprop="datePublished">2018-01-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a><span class="category-list-count">48</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Journal/">Journal</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Journey/">Journey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">14</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data/">Big Data</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Scala/">Java, Scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Network/">Neural Network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/">Scala</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/anki/">anki</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composition/">composition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dnsmasq/">dnsmasq</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encoding/">encoding</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fcitx/">fcitx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/">firefox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i3/">i3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/limit/">limit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multi-thread-java-scala/">multi-thread, java, scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqldb/">mysqldb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/">network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poisson/">poisson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probability/">probability</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proof/">proof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-thoery/">set-thoery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/">virtualbox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win7/">win7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/">zsh</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java-Scala/" style="font-size: 10px;">Java, Scala</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Scala/" style="font-size: 12px;">Scala</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/anki/" style="font-size: 16px;">anki</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/composition/" style="font-size: 10px;">composition</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/dnsmasq/" style="font-size: 10px;">dnsmasq</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/fcitx/" style="font-size: 12px;">fcitx</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/i3/" style="font-size: 10px;">i3</a> <a href="/tags/java/" style="font-size: 16px;">java</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/limit/" style="font-size: 12px;">limit</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="/tags/math/" style="font-size: 14px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/multi-thread-java-scala/" style="font-size: 10px;">multi-thread, java, scala</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysqldb/" style="font-size: 10px;">mysqldb</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/poisson/" style="font-size: 10px;">poisson</a> <a href="/tags/probability/" style="font-size: 10px;">probability</a> <a href="/tags/proof/" style="font-size: 10px;">proof</a> <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/python/" style="font-size: 18px;">python</a> <a href="/tags/set-thoery/" style="font-size: 10px;">set-thoery</a> <a href="/tags/shell/" style="font-size: 12px;">shell</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/ubuntu/" style="font-size: 14px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/win7/" style="font-size: 10px;">win7</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Searene</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'searene';
+    
+    
+    var disqus_url = 'http://searene.me/2017/11/26/use-neural-networks-to-detect-programming-languages/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+    
+        <script src="/vendor/scrollLoading/jquery.scrollLoading.js"></script>
+        <script src="/vendor/scrollLoading/main.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+</script>
+
+        <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("code").map(function(){
+    match = /^\$(.*)\$$/.exec($(this).html());
+    if (match){
+      //$(this).after("<span class=mathjax_inline>" + match + "</span>");
+      //$(this).hide();
+      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+    }
+  });
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </div>
+</body>
+</html>

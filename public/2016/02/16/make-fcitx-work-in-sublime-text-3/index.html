@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2396877498000532",
+    enable_page_level_ads: true
+  });
+</script>
+    
+    <title>make fcitx work in sublime-text-3 | Searene</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="linux,fcitx,sublime" />
+    
+    <meta name="description" content="PrefaceRecently I began to use sublime and I found that fcitx couldn’t work in sublime. This is quite weird. After searching online for a while, I found a solution which could solve the problem in a “">
+<meta name="keywords" content="linux,fcitx,sublime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="make fcitx work in sublime-text-3">
+<meta property="og:url" content="http://searene.me/2016/02/16/make-fcitx-work-in-sublime-text-3/index.html">
+<meta property="og:site_name" content="Searene">
+<meta property="og:description" content="PrefaceRecently I began to use sublime and I found that fcitx couldn’t work in sublime. This is quite weird. After searching online for a while, I found a solution which could solve the problem in a “">
+<meta property="og:image" content="http://i.imgur.com/uN3FHqj.png">
+<meta property="og:updated_time" content="2016-12-06T14:08:49.749Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="make fcitx work in sublime-text-3">
+<meta name="twitter:description" content="PrefaceRecently I began to use sublime and I found that fcitx couldn’t work in sublime. This is quite weird. After searching online for a while, I found a solution which could solve the problem in a “">
+<meta name="twitter:image" content="http://i.imgur.com/uN3FHqj.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <link rel="stylesheet" href="/vendor/scrollLoading/style.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-71019366-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coding/">Coding</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Journal/">Journal</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Journey/">Journey</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Coding/">Coding</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-make-fcitx-work-in-sublime-text-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        make fcitx work in sublime-text-3
+        </h1>
+    
+
+            </header>
+        
+        <div class="article-subtitle">
+            <a href="/2016/02/16/make-fcitx-work-in-sublime-text-3/" class="article-date">
+    <time datetime="2016-02-16T14:43:42.000Z" itemprop="datePublished">2016-02-16</time>
+</a>
+            
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fcitx/">fcitx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime/">sublime</a></li></ul>
+
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Recently I began to use sublime and I found that fcitx couldn’t work in sublime. This is quite weird. After searching online for a while, I found a solution which could solve the problem in a “dirty” way.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>First, thanks to cjacker, save the following script as <code>sublime-imfix.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">sublime-imfix.c</div><div class="line">Use LD_PRELOAD to interpose some function to fix sublime input method support for linux.</div><div class="line">By Cjacker Huang &lt;jianzhong.huang at i-soft.com.cn&gt;</div><div class="line">By whitequark@whitequark.org</div><div class="line"> </div><div class="line">How to compile:</div><div class="line">gcc -shared -o libsublime-imfix.so sublime_imfix.c  `pkg-config --libs --cflags gtk+-2.0` -fPIC</div><div class="line">How to use:</div><div class="line">LD_PRELOAD=./libsublime-imfix.so sublime_text</div><div class="line"> </div><div class="line">Changes:</div><div class="line">2014 06-09</div><div class="line">1, Fix cursor position update for sublime text 3.</div><div class="line">2, Combine the codes from whitequark(fix for xim immodule) and add cursor update support for XIM immodule.</div><div class="line">*/</div><div class="line"> </div><div class="line"><span class="comment">/*for RTLD_NEXT*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> _GNU_SOURCE</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gdk/gdkx.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;dlfcn.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gtk/gtk.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;X11/Xlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;X11/Xutil.h&gt;</span></span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> VERBOSE</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG(fmt, ...) do &#123; \</span></div><div class="line">    FILE* err = fopen(<span class="meta-string">"/tmp/libsublime-immethod-fix.log"</span>, <span class="meta-string">"a"</span>); \</div><div class="line">    <span class="meta-keyword">if</span> (err) &#123; \</div><div class="line">      fprintf(err, fmt, __VA_ARGS__); \</div><div class="line">      fclose(err); \</div><div class="line">    &#125; \</div><div class="line">  &#125; while(0)</div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG(fmt, ...)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"> </div><div class="line"> </div><div class="line"><span class="keyword">typedef</span> GdkSegment GdkRegionBox;</div><div class="line"> </div><div class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">GdkRegion</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">long</span> size;</div><div class="line">  <span class="keyword">long</span> numRects;</div><div class="line">  GdkRegionBox *rects;</div><div class="line">  GdkRegionBox extents;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">GtkIMContext *local_context;</div><div class="line"> </div><div class="line"> </div><div class="line"><span class="comment">//this func is interposed to support cursor position update.</span></div><div class="line"><span class="function"><span class="keyword">void</span></span></div><div class="line"><span class="title">gdk_region_get_clipbox</span> <span class="params">(<span class="keyword">const</span> GdkRegion *region,</span></div><div class="line">            GdkRectangle    *rectangle)</div><div class="line">&#123;</div><div class="line">  g_return_if_fail (region != <span class="literal">NULL</span>);</div><div class="line">  g_return_if_fail (rectangle != <span class="literal">NULL</span>);</div><div class="line"> </div><div class="line">  rectangle-&gt;x = region-&gt;extents.x1;</div><div class="line">  rectangle-&gt;y = region-&gt;extents.y1;</div><div class="line">  rectangle-&gt;width = region-&gt;extents.x2 - region-&gt;extents.x1;</div><div class="line">  rectangle-&gt;height = region-&gt;extents.y2 - region-&gt;extents.y1;</div><div class="line">  GdkRectangle rect;</div><div class="line">  rect.x = rectangle-&gt;x;</div><div class="line">  rect.y = rectangle-&gt;y;</div><div class="line">  rect.width = <span class="number">0</span>;</div><div class="line">  rect.height = rectangle-&gt;height;</div><div class="line">  <span class="comment">//The caret width is 2 in sublime text 2</span></div><div class="line">  <span class="comment">//And is 1 in sublime text 3.</span></div><div class="line">  <span class="comment">//Maybe sometimes we will make a mistake, but for most of the time, it should be the caret.</span></div><div class="line">  <span class="keyword">if</span>((rectangle-&gt;width == <span class="number">2</span> || rectangle-&gt;width == <span class="number">1</span>)  &amp;&amp; GTK_IS_IM_CONTEXT(local_context)) &#123;</div><div class="line">        gtk_im_context_set_cursor_location(local_context, rectangle);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">//this is needed, for example, if you input something in file dialog and return back the edit area</span></div><div class="line"><span class="comment">//context will lost, so here we set it again.</span></div><div class="line"><span class="function"><span class="keyword">static</span> GdkFilterReturn <span class="title">event_filter</span> <span class="params">(GdkXEvent *xevent, GdkEvent *event, gpointer im_context)</span></span></div><div class="line">&#123;</div><div class="line">    XEvent *xev = (XEvent *)xevent;</div><div class="line">    <span class="keyword">if</span>(xev-&gt;type == KeyRelease &amp;&amp; GTK_IS_IM_CONTEXT(im_context)) &#123;</div><div class="line">       GdkWindow * win = g_object_get_data(G_OBJECT(im_context),<span class="string">"window"</span>);</div><div class="line">       <span class="keyword">if</span>(GDK_IS_WINDOW(win))</div><div class="line">         gtk_im_context_set_client_window(im_context, win);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> GDK_FILTER_CONTINUE;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">gtk_im_context_set_client_window</span> <span class="params">(GtkIMContext *context,</span></span></div><div class="line">          GdkWindow    *window)</div><div class="line">&#123;</div><div class="line">    GtkIMContextClass *klass;</div><div class="line">    g_return_if_fail (GTK_IS_IM_CONTEXT (context));</div><div class="line">    klass = GTK_IM_CONTEXT_GET_CLASS (context);</div><div class="line">    <span class="keyword">if</span> (klass-&gt;set_client_window)</div><div class="line">        klass-&gt;set_client_window (context, window);</div><div class="line"> </div><div class="line">    <span class="comment">//below is our interposed codes to save the context to local_context.</span></div><div class="line">    <span class="keyword">if</span>(!GDK_IS_WINDOW (window))</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    g_object_set_data(G_OBJECT(context),<span class="string">"window"</span>,window);</div><div class="line">    <span class="keyword">int</span> width = gdk_window_get_width(window);</div><div class="line">    <span class="keyword">int</span> height = gdk_window_get_height(window);</div><div class="line">    <span class="keyword">if</span>(width != <span class="number">0</span> &amp;&amp; height !=<span class="number">0</span>) &#123;</div><div class="line">        gtk_im_context_focus_in(context);</div><div class="line">        local_context = context;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//only add this event_filter when using 'fcitx' immodule.</span></div><div class="line">    <span class="comment">//for xim immodule, this function is as same as original from gtk2.</span></div><div class="line">    <span class="keyword">const</span> gchar * immodule = g_getenv(<span class="string">"GTK_IM_MODULE"</span>);</div><div class="line">    <span class="keyword">if</span>(immodule &amp;&amp; !<span class="built_in">strcmp</span>(immodule, <span class="string">"fcitx"</span>)) &#123;</div><div class="line">        gdk_window_add_filter (window, event_filter, context);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"> </div><div class="line"><span class="comment">/*below codes is from whitequark, fix for xim immodule*/</span></div><div class="line"> </div><div class="line"><span class="comment">/* See gtkimcontextxim.c */</span></div><div class="line">GType gtk_type_im_context_xim = <span class="number">0</span>;</div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> GTK_TYPE_IM_CONTEXT_XIM            (gtk_type_im_context_xim)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> GTK_IM_CONTEXT_XIM(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_TYPE_IM_CONTEXT_XIM, GtkIMContextXIM))</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> GTK_IM_CONTEXT_XIM_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_TYPE_IM_CONTEXT_XIM, GtkIMContextXIMClass))</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> GTK_IS_IM_CONTEXT_XIM(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_IM_CONTEXT_XIM))</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> GTK_IS_IM_CONTEXT_XIM_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_TYPE_IM_CONTEXT_XIM))</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> GTK_IM_CONTEXT_XIM_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_TYPE_IM_CONTEXT_XIM, GtkIMContextXIMClass))</span></div><div class="line"> </div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">GtkIMContextXIM</span>       <span class="title">GtkIMContextXIM</span>;</span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">GtkIMContextXIMClass</span>  <span class="title">GtkIMContextXIMClass</span>;</span></div><div class="line"> </div><div class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">GtkIMContextXIMClass</span></span></div><div class="line">&#123;</div><div class="line">  GtkIMContextClass parent_class;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">StatusWindow</span> <span class="title">StatusWindow</span>;</span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">GtkXIMInfo</span> <span class="title">GtkXIMInfo</span>;</span></div><div class="line"> </div><div class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">GtkIMContextXIM</span></span></div><div class="line">&#123;</div><div class="line">  GtkIMContext object;</div><div class="line"> </div><div class="line">  GtkXIMInfo *im_info;</div><div class="line"> </div><div class="line">  gchar *locale;</div><div class="line">  gchar *mb_charset;</div><div class="line"> </div><div class="line">  GdkWindow *client_window;</div><div class="line">  GtkWidget *client_widget;</div><div class="line"> </div><div class="line">  <span class="comment">/* The status window for this input context; we claim the</span></div><div class="line">*    * status window when we are focused and have created an XIC</div><div class="line">*       */</div><div class="line">  StatusWindow *status_window;</div><div class="line"> </div><div class="line">  gint preedit_size;</div><div class="line">  gint preedit_length;</div><div class="line">  gunichar *preedit_chars;</div><div class="line">  XIMFeedback *feedbacks;</div><div class="line"> </div><div class="line">  gint preedit_cursor;</div><div class="line"> </div><div class="line">  XIMCallback preedit_start_callback;</div><div class="line">  XIMCallback preedit_done_callback;</div><div class="line">  XIMCallback preedit_draw_callback;</div><div class="line">  XIMCallback preedit_caret_callback;</div><div class="line"> </div><div class="line">  XIMCallback status_start_callback;</div><div class="line">  XIMCallback status_done_callback;</div><div class="line">  XIMCallback status_draw_callback;</div><div class="line"> </div><div class="line">  XIMCallback string_conversion_callback;</div><div class="line"> </div><div class="line">  XIC ic;</div><div class="line"> </div><div class="line">  guint filter_key_release : <span class="number">1</span>;</div><div class="line">  guint use_preedit : <span class="number">1</span>;</div><div class="line">  guint finalizing : <span class="number">1</span>;</div><div class="line">  guint in_toplevel : <span class="number">1</span>;</div><div class="line">  guint has_focus : <span class="number">1</span>;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="keyword">static</span> GClassInitFunc orig_gtk_im_context_xim_class_init;</div><div class="line"><span class="function"><span class="keyword">static</span> <span class="title">GType</span> <span class="params">(*orig_g_type_module_register_type)</span><span class="params">(GTypeModule *,</span></span></div><div class="line">                                                 GType, <span class="keyword">const</span> gchar *,</div><div class="line">                                                 <span class="keyword">const</span> GTypeInfo *, GTypeFlags);</div><div class="line"><span class="function"><span class="keyword">static</span> <span class="title">gboolean</span> <span class="params">(*orig_gtk_im_context_xim_filter_keypress)</span><span class="params">(GtkIMContext *context,</span></span></div><div class="line">                                                           GdkEventKey *event);</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">static</span> gboolean</span></div><div class="line"><span class="title">hook_gtk_im_context_xim_filter_keypress</span><span class="params">(GtkIMContext *context, GdkEventKey *event)</span> &#123;</div><div class="line">  GtkIMContextXIM *im_context_xim = GTK_IM_CONTEXT_XIM(context);</div><div class="line">  <span class="keyword">if</span> (!im_context_xim-&gt;client_window) &#123;</div><div class="line">    DEBUG(<span class="string">"im_context_xim == %p\n"</span>, im_context_xim);</div><div class="line">    DEBUG(<span class="string">"event-&gt;window == %p\n"</span>, event-&gt;window);</div><div class="line"> </div><div class="line">    gtk_im_context_set_client_window(context, event-&gt;window);</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="keyword">return</span> orig_gtk_im_context_xim_filter_keypress(context, event);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span></span></div><div class="line"><span class="title">hook_gtk_im_context_xim_class_init</span> <span class="params">(GtkIMContextXIMClass *class)</span> &#123;</div><div class="line">  orig_gtk_im_context_xim_class_init(class, <span class="literal">NULL</span>); <span class="comment">/* wat? */</span></div><div class="line"> </div><div class="line">  GtkIMContextClass *im_context_class = GTK_IM_CONTEXT_CLASS (class);</div><div class="line"> </div><div class="line">  assert(!orig_gtk_im_context_xim_filter_keypress);</div><div class="line">  orig_gtk_im_context_xim_filter_keypress = im_context_class-&gt;filter_keypress;</div><div class="line">  im_context_class-&gt;filter_keypress = hook_gtk_im_context_xim_filter_keypress;</div><div class="line">  DEBUG(<span class="string">"orig_gtk_im_context_xim_filter_keypress: %p\n"</span>,</div><div class="line">        orig_gtk_im_context_xim_filter_keypress);</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function">GType</span></div><div class="line"><span class="title">g_type_module_register_type</span> <span class="params">(GTypeModule *<span class="keyword">module</span>,</span></div><div class="line">                             GType parent_type,</div><div class="line">                             <span class="keyword">const</span> gchar *type_name,</div><div class="line">                             <span class="keyword">const</span> GTypeInfo *type_info,</div><div class="line">                             GTypeFlags flags) &#123;</div><div class="line">  <span class="keyword">if</span> (!orig_g_type_module_register_type) &#123;</div><div class="line">    orig_g_type_module_register_type = dlsym(RTLD_NEXT, <span class="string">"g_type_module_register_type"</span>);</div><div class="line">    assert(orig_g_type_module_register_type);</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="keyword">if</span> (type_name &amp;&amp; !<span class="built_in">strcmp</span>(type_name, <span class="string">"GtkIMContextXIM"</span>)) &#123;</div><div class="line">    assert(!orig_gtk_im_context_xim_class_init);</div><div class="line">    orig_gtk_im_context_xim_class_init = type_info-&gt;class_init;</div><div class="line"> </div><div class="line">    assert(<span class="keyword">sizeof</span>(GtkIMContextXIM) == type_info-&gt;instance_size);</div><div class="line"> </div><div class="line">    <span class="keyword">const</span> GTypeInfo hook_im_context_xim_info =</div><div class="line">    &#123;</div><div class="line">      type_info-&gt;class_size,</div><div class="line">      type_info-&gt;base_init,</div><div class="line">      type_info-&gt;base_finalize,</div><div class="line">      (GClassInitFunc) hook_gtk_im_context_xim_class_init,</div><div class="line">      type_info-&gt;class_finalize,</div><div class="line">      type_info-&gt;class_data,</div><div class="line">      type_info-&gt;instance_size,</div><div class="line">      type_info-&gt;n_preallocs,</div><div class="line">      type_info-&gt;instance_init,</div><div class="line">    &#125;;</div><div class="line"> </div><div class="line">    DEBUG(<span class="string">"orig_gtk_im_context_xim_class_init: %p\n"</span>, orig_gtk_im_context_xim_class_init);</div><div class="line"> </div><div class="line">    gtk_type_im_context_xim =</div><div class="line">      orig_g_type_module_register_type(<span class="keyword">module</span>, parent_type, type_name,</div><div class="line">                                       &amp;hook_im_context_xim_info, flags);</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> gtk_type_im_context_xim;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="keyword">return</span> orig_g_type_module_register_type(<span class="keyword">module</span>, parent_type, type_name, type_info, flags);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Then compile it.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gcc -shared -o libsublime-imfix.so sublime_imfix.c  `pkg-config --libs --cflags gtk+-2.0` <span class="_">-f</span>PIC</div></pre></td></tr></table></figure>
+<p>You will get a file called <code>libsublime-imfix.so</code>, put it in <code>$HOME/.config/sublime-text-3/Packages/</code>. In fact, it doesn’t matter where you put it, as long as you specify the right location of it in the following code. Put the following code in your <code>~/.bashrc</code> file.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># sublime fcitx fix</span></div><div class="line"><span class="built_in">alias</span> sublime=<span class="string">'LD_PRELOAD=$HOME/.config/sublime-text-3/Packages/libsublime-imfix.so /usr/bin/subl &gt; /dev/null 2&gt;&amp;1 &amp;'</span></div></pre></td></tr></table></figure>
+<p>Save, re-source it.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">. ~/.bashrc</div></pre></td></tr></table></figure>
+<p>Type in <code>sublime</code> in your terminal and you are good to go!</p>
+<h1 id="Showcase"><a href="#Showcase" class="headerlink" title="Showcase"></a>Showcase</h1><p><img src="http://i.imgur.com/uN3FHqj.png" alt="fcitx in sublime-text-3"></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://searene.me/2016/02/16/make-fcitx-work-in-sublime-text-3/" data-id="cjjhacqes005z8arfhlcf2mwv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/searene" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/1031769/searene?tab=profile" target="_blank">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://feeds.feedburner.com/Searene" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/03/26/learn-redirection-the-hard-way/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            learn redirection the hard way
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2016/02/14/GoldenDictMedia/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">GoldenDictMedia</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/07/Went-to-Qiandao-Lake/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/IMG_20180406_084153.jpg)" alt="Went to Qiandao Lake" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/07/Went-to-Qiandao-Lake/" class="title">Went to Qiandao Lake</a></p>
+                            <p class="item-date"><time datetime="2018-04-07T02:48:09.000Z" itemprop="datePublished">2018-04-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/03/Go-to-KTV-alone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/1_1354265864.jpg)" alt="Go to KTV alone" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/03/Go-to-KTV-alone/" class="title">Go to KTV alone</a></p>
+                            <p class="item-date"><time datetime="2018-04-02T23:10:10.000Z" itemprop="datePublished">2018-04-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/01/live-a-quite-life/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/8608094661_f6fdcc0c83_b.jpg)" alt="live a quite life" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/01/live-a-quite-life/" class="title">live a quite life</a></p>
+                            <p class="item-date"><time datetime="2018-04-01T01:50:26.000Z" itemprop="datePublished">2018-04-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/05/The-meaning-of-life/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/980x.png)" alt="The meaning of life" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/03/05/The-meaning-of-life/" class="title">The meaning of life</a></p>
+                            <p class="item-date"><time datetime="2018-03-05T10:53:53.000Z" itemprop="datePublished">2018-03-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/20/We-are-either-young-or-old-never-something-in-between/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/128910133_14610369084721n.jpg)" alt="We are either young or old, never something in between" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journey/">Journey</a></p>
+                            <p class="item-title"><a href="/2018/01/20/We-are-either-young-or-old-never-something-in-between/" class="title">We are either young or old, never something in between</a></p>
+                            <p class="item-date"><time datetime="2018-01-20T07:55:01.000Z" itemprop="datePublished">2018-01-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a><span class="category-list-count">48</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Journal/">Journal</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Journey/">Journey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">14</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data/">Big Data</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Scala/">Java, Scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Network/">Neural Network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/">Scala</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/anki/">anki</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composition/">composition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dnsmasq/">dnsmasq</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encoding/">encoding</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fcitx/">fcitx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/">firefox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i3/">i3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/limit/">limit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multi-thread-java-scala/">multi-thread, java, scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqldb/">mysqldb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/">network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poisson/">poisson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probability/">probability</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proof/">proof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-thoery/">set-thoery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/">virtualbox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win7/">win7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/">zsh</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java-Scala/" style="font-size: 10px;">Java, Scala</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Scala/" style="font-size: 12px;">Scala</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/anki/" style="font-size: 16px;">anki</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/composition/" style="font-size: 10px;">composition</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/dnsmasq/" style="font-size: 10px;">dnsmasq</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/fcitx/" style="font-size: 12px;">fcitx</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/i3/" style="font-size: 10px;">i3</a> <a href="/tags/java/" style="font-size: 16px;">java</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/limit/" style="font-size: 12px;">limit</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="/tags/math/" style="font-size: 14px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/multi-thread-java-scala/" style="font-size: 10px;">multi-thread, java, scala</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysqldb/" style="font-size: 10px;">mysqldb</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/poisson/" style="font-size: 10px;">poisson</a> <a href="/tags/probability/" style="font-size: 10px;">probability</a> <a href="/tags/proof/" style="font-size: 10px;">proof</a> <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/python/" style="font-size: 18px;">python</a> <a href="/tags/set-thoery/" style="font-size: 10px;">set-thoery</a> <a href="/tags/shell/" style="font-size: 12px;">shell</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/ubuntu/" style="font-size: 14px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/win7/" style="font-size: 10px;">win7</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Searene</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'searene';
+    
+    
+    var disqus_url = 'http://searene.me/2016/02/16/make-fcitx-work-in-sublime-text-3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+    
+        <script src="/vendor/scrollLoading/jquery.scrollLoading.js"></script>
+        <script src="/vendor/scrollLoading/main.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+</script>
+
+        <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("code").map(function(){
+    match = /^\$(.*)\$$/.exec($(this).html());
+    if (match){
+      //$(this).after("<span class=mathjax_inline>" + match + "</span>");
+      //$(this).hide();
+      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+    }
+  });
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </div>
+</body>
+</html>

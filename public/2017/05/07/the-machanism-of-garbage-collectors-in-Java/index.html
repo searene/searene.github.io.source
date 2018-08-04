@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2396877498000532",
+    enable_page_level_ads: true
+  });
+</script>
+    
+    <title>the machanism of garbage collectors in Java | Searene</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="java,jvm" />
+    
+    <meta name="description" content="There are several garbage collectors in Java, each has its specific usage scenario. To understand garbage collection, we first have to understand how heaps are divided in Java. Heaps are divided into">
+<meta name="keywords" content="java,jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="the machanism of garbage collectors in Java">
+<meta property="og:url" content="http://searene.me/2017/05/07/the-machanism-of-garbage-collectors-in-Java/index.html">
+<meta property="og:site_name" content="Searene">
+<meta property="og:description" content="There are several garbage collectors in Java, each has its specific usage scenario. To understand garbage collection, we first have to understand how heaps are divided in Java. Heaps are divided into">
+<meta property="og:image" content="http://searene.me/images/Blog_Trash-1.jpg">
+<meta property="og:updated_time" content="2017-05-20T17:02:58.303Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="the machanism of garbage collectors in Java">
+<meta name="twitter:description" content="There are several garbage collectors in Java, each has its specific usage scenario. To understand garbage collection, we first have to understand how heaps are divided in Java. Heaps are divided into">
+<meta name="twitter:image" content="http://searene.me/images/Blog_Trash-1.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <link rel="stylesheet" href="/vendor/scrollLoading/style.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-71019366-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Coding/">Coding</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Journal/">Journal</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Journey/">Journey</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Math/">Math</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Coding/">Coding</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-the-machanism-of-garbage-collectors-in-Java" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        the machanism of garbage collectors in Java
+        </h1>
+    
+
+            </header>
+        
+        <div class="article-subtitle">
+            <a href="/2017/05/07/the-machanism-of-garbage-collectors-in-Java/" class="article-date">
+    <time datetime="2017-05-07T14:01:33.000Z" itemprop="datePublished">2017-05-07</time>
+</a>
+            
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jvm/">jvm</a></li></ul>
+
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>There are several garbage collectors in Java, each has its specific usage scenario. To understand garbage collection, we first have to understand how heaps are divided in Java.</p>
+<p>Heaps are divided into two parts in Java, one is called the Young Generation, and the other one is called the Old Generation. You may have seen something called the Permanent Generation in other tutorials/documentations. It exists in Java 7 and before, Oracle removed it in Java 8.</p>
+<p>The Young Generation is also divided into three parts:</p>
+<ol>
+<li>Eden Area</li>
+<li>Survivor Space 1</li>
+<li>Survivor Space 2</li>
+</ol>
+<p>The whole picture in Heap is as follows.</p>
+<p><img src="/images/The-Machanism-of-Garbage-Collectors-in-Java.png" alt="JVM heap memory"></p>
+<p>Basically, there are two types of garbage collections for most collectors:</p>
+<ol>
+<li>Young Generation Collection</li>
+<li>Old Generation Collection</li>
+</ol>
+<p>Young Generation Collection is meant to be time-efficient and frequent, this is different from the Old Generation Collection, which could take a long time, and it’s done less frequently. The Old Generation usually has larger heap space.</p>
+<h2 id="Serial-Collector"><a href="#Serial-Collector" class="headerlink" title="Serial Collector"></a>Serial Collector</h2><p><strong>Young Generation Collection Using the Serial Collector</strong><br>    When you <code>new</code> an object in the Java code, the space for that object will be allocated in the Eden Area. After a while, the Eden Area may be filled up, so live objects in it will be copied into one of the Survivor Space, let’s say it’s Survivor Space 1. Some large objects that won’t be fit in the Survivor Space will be copies into the Old Generation.</p>
+<p><img src="/images/The-Machanism-of-Garbage-Collectors-in-Java-1.png" alt="young generation in the Serial Collector - 1"></p>
+<p>After a while, some live objects in Survivor Space 1 become dead, i.e., they are not referenced by any other objects anymore, and some more space is allocated in the Eden Area for newly initiated objects.</p>
+<p>Now you can see, objects exist in Eden and Survivor Space 1, and Survivor Space 2 is empty. This is where the interesting thing begins. Because from now on, what the Young Generation does is to repeat the following process.</p>
+<p>When the Eden Area is filled up again. live objects in it will be copied into Survivor Space 2(Some large objects that are too large to fit in Survivor Space will be copied into the Old Generation). The live objects that are relatively young are copied into the Survivor Space 2, live objects that are relatively old(i.e., they survived through several Young Generation Collections) are copied into the Old Generation.</p>
+<p><img src="/images/The-Machanism-of-Garbage-Collectors-in-Java-3.png" alt="young generation in the Serial Collector - 2"></p>
+<p>Then all dead objects in the Eden and Survivor Space 1 will be garbage collected, the two survivor spaces swap roles, the Survivor Space 1 is empty while the Survivor Space 2 is not, and the above process will be repeated.</p>
+<p><strong>Old Generation Collection Using the Serial Collector</strong></p>
+<p>Old Generation Collection is divided into three steps, mark-sweep-compact. In the mark phase, the collector identifies live objects, the sweep phase sweeps over the generation and frees space taken by dead objects. Then the collector moves all live objects to the beginning of the old generation, which is called compaction. The compaction is for quick space allocation in the old generation later on.</p>
+<p><strong>When to Use the Serial Collector</strong></p>
+<p>The Serial Collector is done in a single-threaded way, so it’s meant to be run on client-style machines that do not require low pause times. And since it only takes a small amount of memory, the serial collector can perform very well with only 64MB heaps in most cases.</p>
+<h2 id="Parallel-Collector"><a href="#Parallel-Collector" class="headerlink" title="Parallel Collector"></a>Parallel Collector</h2><p><strong>Young Generation Collection Using the Parallel Collector</strong></p>
+<p>Young Generation collection in the parallel collector is the same as the Serial Collector, except that it’s done in parallel. The Parallel Collector fully utilizes the power of multiple threads and make the process of Young Generation Collection faster. Although the Young Generation Collection is still a stop-the-world action, the process would take less time and make less impact to the running program.</p>
+<p><strong>Old Generation Collection Using the Parallel Collector</strong></p>
+<p>Old Generation Collection using the Parallel Collector is the same as the Serial Collector.</p>
+<p><strong>When to Use the Parallel Collector</strong></p>
+<p>You can use the Parallel Collector when you have multiple CPU cores, whose power could be unleashed and utilized by it. But also notice that the Parallel Collector wouldn’t help you a lot if you need a much shorter pause time in GC, because it still takes a long time to finish the Old Generation Collection, which is done in a single-threaded way in the Parallel Collector.</p>
+<h2 id="Parallel-Compacting-Collector"><a href="#Parallel-Compacting-Collector" class="headerlink" title="Parallel Compacting Collector"></a>Parallel Compacting Collector</h2><p><strong>Young Generation Collection Using the Parallel Collector</strong></p>
+<p>Young Generation Collection using the Parallel Compacting Collector is the same as the Parallel Collector.</p>
+<p><strong>Old Generation Collection Using the Parallel Collector</strong></p>
+<p>Old Generation Collection in the Parallel Compacting Collector is done in a multi-threaded way, this is different from the Parallel Collector, whose uses only a single thread to complete Old Generation Collection.</p>
+<p>There are in total three phases regarding Old Generation Collection.</p>
+<p><strong>1. Mark(multi-thread)</strong></p>
+<p>First of all, the old generation is divided into several regions of the same fixed sizes. Then live objects that are directly reachable from the code are divided equally among multiple threads. Those threads work concurrently to mark all live objects in the old generation, storing the size and location of each live object.</p>
+<p><strong>2. Summary(single-thread)</strong></p>
+<p>Due to previous compactions, some portions on the left side of the old generation are typically denser than those on the right side of it. So the collector will search from the left side, calculate the density of live objects in each region until it reaches a point where the density is small enough to be considered eligible for garbage collection. All the regions to the left of the point are not worth garbage collecting, and they will not be moved, those regions are called <em>dense prefix</em>. All the regions to the right of the point will be garbage collected. After collection, the collector will store the location of the first live object in each region, which would be helpful in the compaction phase.</p>
+<p><strong>3. Compaction(multi-thread)</strong></p>
+<p>Live objects on the right side will be moved to the left side of the old generation, leaving a huge chunk of contiguous free memory on the right side. This process is called compaction.</p>
+<p><strong>When to Use the Parallel Compacting Collector</strong></p>
+<p>You can use the Parallel Compacting Collector if you have multiple CPU cores that could be utilized. The collector will take advantage of those CPU cores and make the total pause time shorter.</p>
+<h2 id="Concurrent-Mark-Sweep-CMS-Collector"><a href="#Concurrent-Mark-Sweep-CMS-Collector" class="headerlink" title="Concurrent Mark-Sweep(CMS) Collector"></a>Concurrent Mark-Sweep(CMS) Collector</h2><p><strong>Young Generation Collection Using the CMS Collector</strong></p>
+<p>Young Generation Collection using the CMS Collector is the same as the Parallel Collector.</p>
+<p><strong>Old Generation Collection Using the CMS Collector</strong></p>
+<p>There are four phases in total in the Old Generation Collection using the CMS Collector.</p>
+<p><strong>1. Initial Mark(single thread)</strong></p>
+<p>All live objects that are directly reachable from the code are marked as alive. It takes a short pause to do it.</p>
+<p><strong>2. Concurrent Mark(multi-thread)</strong></p>
+<p>While the application is running, the collector marks live objects that are transitively reachable from the above set obtained from the <em>Initial Mark</em>.</p>
+<p><strong>3. Remark(multi-thread)</strong></p>
+<p>Because the <em>Concurrent Mark</em> is conducted while the application is still running, some live objects cannot be detected in the second phase. So the application stops for a while, and the collector checks all objects that are modified during the <em>Concurrent Mark</em> phase, and mark all objects that turned garbage during the previous phase. After the <em>Remark</em> phase, all live objects are marked.</p>
+<p><strong>4. Sweep(multi-thread)</strong></p>
+<p>The collector conducts a <em>Sweep</em> operation to eliminate all garbage in the Old Generation.</p>
+<p><strong>Disadvantages of the CMS Collector</strong></p>
+<p>The <em>CMS Collector</em> is the only collector that has no <em>compact</em> phase, which means it cannot use the <em>bump-the-pointer</em> strategy(see reference below) to find free space.</p>
+<div style="background-color: #fff5cc; border-color: #ffe273; padding: 10px; border-left: 10px solid #ffe273"><strong>bump-the-pointer</strong> strategy: This is a strategy used to allocate new space in the Old Generation. With this strategy, you only need to store the position of the last live object after each Old Generation Collection. When you need to allocate a space to store a new object, what you need to do is just to allocate the space right after the position and update the position to the new one. There are no live objects after that position because the Old Generation has been compacted before. The strategy is used in all above collectors except the <em>CMS Collector</em> because the <em>CMS Collector</em> doesn’t compact the Old Generation.</div>
+
+<p>So how does the <em>CMS Collector</em> find new space to allocate? Basically, it maintains a linked list internally, which connects all free space together. When an allocation is needed, the collector will traverse through the list and find the appropriate region to allocate the space.</p>
+<p>Another disadvantage of the <em>CMS Collector</em> is that it needs a bigger heap size because the <em>Concurrent Mark</em> phase proceeds while the application is still running, which means more space needs to be allocated when some garbage cannot be collected in time. So enough heap size must be prepared to store both uncollected garbage and newly allocated space.</p>
+<p><strong>When to Use the CMS Collector</strong></p>
+<p>The <em>CMS Collector</em> is typically used in the server side application, where large heap size and multiple CPU cores could be utilized. Those applications usually require a smaller pause time, which is exactly what <em>the CMS Collector</em> is good at.</p>
+<h2 id="G1-Garbage-First-Collector"><a href="#G1-Garbage-First-Collector" class="headerlink" title="G1(Garbage First) Collector"></a>G1(Garbage First) Collector</h2><p>G1 Collector is different from previous collectors. All the previous collectors have a young generation and an old generation of fixed-size. This is the not the case for the G1 Collector. For the G1 Collector, the entire heap is divided into approximately 2000 areas, the size of each area is around 1MB ~ 32MB. The type of these areas may be different, it may be eden, survivor area, or the old generation. The whole picture is as follows.</p>
+<p><img src="/images/The-Machanism-of-Garbage-Collectors-in-Java-4.png" alt="the CMS Collector"></p>
+<p>Although the size of each region is the same in the above picture, in reality, this may not be the case. The size of each region usually depends on how the collector optimizes the collection algorithm, and they are changing constantly.</p>
+<p>Notice that <em>Humongous Region</em> is used to store objects that are larger than 50% of the normal region size. Currently, no optimization is applied to this type of region, so avoid using objects that are too large.</p>
+<p><strong>Young Generation Collection Using the G1 Collector</strong></p>
+<ol>
+<li>Live objects in eden areas are copied into survivor areas.</li>
+<li>Some live objects that are out of the time threshold are copied into old generations.</li>
+<li>“Accounting” process is performed, which determines how much time is needed for the next Young GC based on the current stats and the predefined pause time.</li>
+<li>Resize eden/survivor regions based on the information obtained above.</li>
+</ol>
+<p><strong>Old Generation Collection Using the G1 Collector</strong></p>
+<ol>
+<li>Initial Mark: mark all survivor regions which may have references to objects in old generations. This step is done concurrently with Young GC. So although it’s still a stop-the-world operation(because the entire Young GC is a stop-the-world operation), it doesn’t take extra time to complete.</li>
+<li>Root region Scan: scan survivor regions for references into the old generation. It happens when the application is still running.</li>
+<li>Concurrent Mark: mark all live objects across the entire heap, this is done while the application is still running.</li>
+<li>Remark: stop the world and complete the marking process.</li>
+<li>Cleanup: <ul>
+<li>Perform accounting on live objects and completely free regions.(stop-the-world)</li>
+<li>Scrubs Remembered Sets.(stop-the-world)</li>
+<li>Reset empty regions and return them to the free list.(concurrent)</li>
+</ul>
+</li>
+<li>Copy: copy live objects from to new regions. This is a stop-the-world step. It can be seen as a kind of compaction.</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf</a></li>
+<li><a href="http://www.oracle.com/technetwork/tutorials/tutorials-1876574.html" target="_blank" rel="external">http://www.oracle.com/technetwork/tutorials/tutorials-1876574.html</a></li>
+<li><a href="http://stackoverflow.com/a/19303535/1031769" target="_blank" rel="external">http://stackoverflow.com/a/19303535/1031769</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://searene.me/2017/05/07/the-machanism-of-garbage-collectors-in-Java/" data-id="cjjhacqex006f8arfzou2hmnp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/searene" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/1031769/searene?tab=profile" target="_blank">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://feeds.feedburner.com/Searene" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/05/10/Serialization-and-Deserialization-in-Java/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Serialization and Deserialization in Java
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/04/23/Inheritance-in-Javascript/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Inheritance in Javascript</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/07/Went-to-Qiandao-Lake/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/IMG_20180406_084153.jpg)" alt="Went to Qiandao Lake" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/07/Went-to-Qiandao-Lake/" class="title">Went to Qiandao Lake</a></p>
+                            <p class="item-date"><time datetime="2018-04-07T02:48:09.000Z" itemprop="datePublished">2018-04-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/03/Go-to-KTV-alone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/1_1354265864.jpg)" alt="Go to KTV alone" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/03/Go-to-KTV-alone/" class="title">Go to KTV alone</a></p>
+                            <p class="item-date"><time datetime="2018-04-02T23:10:10.000Z" itemprop="datePublished">2018-04-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/01/live-a-quite-life/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/8608094661_f6fdcc0c83_b.jpg)" alt="live a quite life" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/04/01/live-a-quite-life/" class="title">live a quite life</a></p>
+                            <p class="item-date"><time datetime="2018-04-01T01:50:26.000Z" itemprop="datePublished">2018-04-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/05/The-meaning-of-life/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/980x.png)" alt="The meaning of life" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journal/">Journal</a></p>
+                            <p class="item-title"><a href="/2018/03/05/The-meaning-of-life/" class="title">The meaning of life</a></p>
+                            <p class="item-date"><time datetime="2018-03-05T10:53:53.000Z" itemprop="datePublished">2018-03-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/20/We-are-either-young-or-old-never-something-in-between/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/128910133_14610369084721n.jpg)" alt="We are either young or old, never something in between" class="thumbnail-image"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Journey/">Journey</a></p>
+                            <p class="item-title"><a href="/2018/01/20/We-are-either-young-or-old-never-something-in-between/" class="title">We are either young or old, never something in between</a></p>
+                            <p class="item-date"><time datetime="2018-01-20T07:55:01.000Z" itemprop="datePublished">2018-01-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a><span class="category-list-count">48</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Journal/">Journal</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Journey/">Journey</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">14</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data/">Big Data</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Scala/">Java, Scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Network/">Neural Network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/">Scala</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/anki/">anki</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composition/">composition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dnsmasq/">dnsmasq</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encoding/">encoding</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fcitx/">fcitx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/">firefox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i3/">i3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/limit/">limit</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathjax/">mathjax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multi-thread-java-scala/">multi-thread, java, scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqldb/">mysqldb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/">network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poisson/">poisson</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probability/">probability</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proof/">proof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pycharm/">pycharm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-thoery/">set-thoery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/">virtualbox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/win7/">win7</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/">zsh</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java-Scala/" style="font-size: 10px;">Java, Scala</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Neural-Network/" style="font-size: 10px;">Neural Network</a> <a href="/tags/Scala/" style="font-size: 12px;">Scala</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/anki/" style="font-size: 16px;">anki</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/composition/" style="font-size: 10px;">composition</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/dnsmasq/" style="font-size: 10px;">dnsmasq</a> <a href="/tags/encoding/" style="font-size: 10px;">encoding</a> <a href="/tags/fcitx/" style="font-size: 12px;">fcitx</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/i3/" style="font-size: 10px;">i3</a> <a href="/tags/java/" style="font-size: 16px;">java</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/limit/" style="font-size: 12px;">limit</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine learning</a> <a href="/tags/math/" style="font-size: 14px;">math</a> <a href="/tags/mathjax/" style="font-size: 10px;">mathjax</a> <a href="/tags/multi-thread-java-scala/" style="font-size: 10px;">multi-thread, java, scala</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysqldb/" style="font-size: 10px;">mysqldb</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/poisson/" style="font-size: 10px;">poisson</a> <a href="/tags/probability/" style="font-size: 10px;">probability</a> <a href="/tags/proof/" style="font-size: 10px;">proof</a> <a href="/tags/pycharm/" style="font-size: 10px;">pycharm</a> <a href="/tags/python/" style="font-size: 18px;">python</a> <a href="/tags/set-thoery/" style="font-size: 10px;">set-thoery</a> <a href="/tags/shell/" style="font-size: 12px;">shell</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/ubuntu/" style="font-size: 14px;">ubuntu</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/win7/" style="font-size: 10px;">win7</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Searene</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'searene';
+    
+    
+    var disqus_url = 'http://searene.me/2017/05/07/the-machanism-of-garbage-collectors-in-Java/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
+
+    
+        <script src="/vendor/scrollLoading/jquery.scrollLoading.js"></script>
+        <script src="/vendor/scrollLoading/main.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+</script>
+
+        <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("code").map(function(){
+    match = /^\$(.*)\$$/.exec($(this).html());
+    if (match){
+      //$(this).after("<span class=mathjax_inline>" + match + "</span>");
+      //$(this).hide();
+      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+    }
+  });
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+    </div>
+</body>
+</html>
